@@ -1,0 +1,31 @@
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        ArrayList<Integer> arr=new ArrayList<>();
+        Arrays.sort(nums2);
+        for(int i=0;i<nums1.length;i++){
+             int num=nums1[i];
+             int j=0;
+             int high=nums2.length -1;
+             int low=0;
+             int mid;
+             if((arr.indexOf(num)==-1) && ((arr==null || arr!=null))){
+              while(low<=high){
+                mid=(low+high)/2;
+                if(num==nums2[mid]){
+                    arr.add(num);
+                    break;
+                }else if(num<nums2[mid]){
+                    high=mid-1;
+                }else{
+                    low=mid+1;
+                }
+              }
+             }
+        }
+        int[] result=new int[arr.size()];
+        for(int i=0;i<arr.size();i++){
+            result[i]=arr.get(i);
+        }   
+        return result;
+    }
+}
